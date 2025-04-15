@@ -131,19 +131,17 @@ def handle_message(msg):
         return
 
     
-    if user_id == OWNER_ID:
-        if text and text.startswith("/") and text != "/admin":
-            return  # Игнорируем команды, кроме /admin
-            
+    if user_id == OWNER_ID and chat_type == "private":
         if group_id:
             if group_id not in media_groups:
                 media_groups[group_id] = []
             media_groups[group_id].append(msg)
             media_group_timers[group_id] = time.time()
         else:
+            if text and not text.startswith("/admin"):
+                return  # Игнорируем все, кроме /admin
             last_message["single"] = [msg]
             show_buttons(chat_id)
-
 def show_buttons(chat_id):
     buttons = [[{"text": name, "callback_data": f"to:{cid}"}] for name, cid in chats.items()]
     if chats:
