@@ -8,7 +8,7 @@ TOKEN = "7700887302:AAGypG3ZEtWIn85j9SEFyJWDY207IOoSS-E"
 API = f"https://api.telegram.org/bot{TOKEN}"
 OWNER_ID = 6037202333
 FOOTER = "[© SNX | SIGNAL NEXT – ПОДПИШИСЬ ☑️](https://t.me/+oah4P2-9oUcyM2Zi)"
-CHATS_FILE = os.path.expanduser("~/Documents/chats.json")
+CHATS_FILE = "chats.json"
 
 last_message = {}
 pending = {}
