@@ -130,7 +130,11 @@ def handle_message(msg):
         send_message(chat_id, f"Чат «{name}» добавлен.")
         return
 
+    
     if user_id == OWNER_ID:
+        if text and text.startswith("/") and text != "/admin":
+            return  # Игнорируем команды, кроме /admin
+            
         if group_id:
             if group_id not in media_groups:
                 media_groups[group_id] = []
